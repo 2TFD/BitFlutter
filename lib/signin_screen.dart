@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SigninScreen extends StatelessWidget {
   const SigninScreen({super.key});
@@ -109,7 +110,7 @@ class SigninScreen extends StatelessWidget {
                 CupertinoButton.tinted(child: Text('Войти', style: TextStyle(
                   color: Color.fromRGBO(247, 247, 249, 1)
                 )),
-                 onPressed: null,
+                 onPressed: () => context.push('/popular'),
                  disabledColor: Color.fromRGBO(72, 178, 231, 1),
                  ),
 
@@ -131,8 +132,6 @@ class SigninScreen extends StatelessWidget {
                         ),
                         Text(
                           'Создать пользователя',
-                          style: TextStyle(
-                          )
                         )
                       ],
                     ),
