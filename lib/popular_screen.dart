@@ -7,7 +7,19 @@ class PopularScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ProductCard()
+      appBar: AppBar(title: Text('Популярное')),
+      body: Scaffold(
+        backgroundColor: Colors.white,
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              ProductCard()
+            ],
+          )
+        ),
+      ),
+      
         
     );
   }

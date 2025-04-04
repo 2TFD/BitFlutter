@@ -7,76 +7,104 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(16)),
-          color: Colors.amber
-        ),
-        height: 182,
-        width: 160,
-        child: Stack(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(16)),
-                color: Colors.white
-              ),
-              width: double.maxFinite,
-            ),
-            Positioned(
-              top: 10,
-              left: 10,
-              child: IconButton(
-                onPressed:() {
-                },
-                icon: Icon(CupertinoIcons.heart),
-                style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(Colors.red),
-                  padding: WidgetStatePropertyAll(EdgeInsets.all(10)),
-                  iconSize: WidgetStatePropertyAll(14),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        color: Colors.white
+      ),
+      height: 182,
+      width: 160,
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 9, right: 9, top: 18),
+            child: Container(
+              height: 126,
+              width: 142,
+              child:Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Image.asset('lib/photo/nike-zoom.png'),
+                    Text(
+                      'Best Seller',
+                      style: TextStyle(
+                        color: Color.fromRGBO(72, 178, 231, 1),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                    Text(
+                      'Nike Air Max',
+                      style: TextStyle(
+                        color: Color.fromRGBO(106, 106, 106, 1),
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16
+                      ),
+                    ),
+                  ],
                 ),
-              ),
             ),
-            Positioned(
-              top: 9,
-              left: 9,
-              child: Column(
-                children: [
-                  Container(
-                    width: 142,
-                    height: 70,
-                    child: Image.asset('lib/photo/nike-zoom.png', width: 142, height: 70,), 
-                  ), 
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Row(
-                        children: [
-                          Text('fa')
-                        ],
-                      )
-                    ],
-                  )
-                ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                height: 34,
+                width: 160,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16))
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 9, bottom: 8),
+                      child: Text(
+                        '₽752.00',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500
+                          ),
+                        ),
+                    ),
+                  ],
+                )
               ),
-            ),
-            Positioned(
+            ],
+          ),
+          Positioned(
+            top: 10,
+            left: 10,
+            child: IconButton(
+              onPressed: () {
+              },
+              icon: Icon(CupertinoIcons.heart),
+              style: ButtonStyle(
+                iconColor:WidgetStateProperty.all(Colors.red),
+                iconSize: WidgetStatePropertyAll(20),
+              ),
+            )
+          ),
+          Positioned(
               right: 0,
               bottom: 0,
               child: Container(
+                height: 34,
+                width: 34,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(16)),
-                  color: Colors.teal,
+                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(16), topLeft: Radius.circular(16)),
+                  color: Color.fromRGBO(72, 178, 231, 1),
                 ),
                 child: IconButton(
                 onPressed:() {
                 },
-                icon: Icon(CupertinoIcons.heart),
+                icon: Icon(CupertinoIcons.add),
               ),
-              )
             )
-          ],
-          
-        ),
+          )
+        ],
+      ),
     );
   }
 }
