@@ -7,20 +7,67 @@ class PopularScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Популярное')),
+      appBar: AppBar(title: Center(child: Text('Популярное'))),
       body: Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              ProductCard()
-            ],
+          padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+          child: Scrollbar(
+            child: ListView(
+              children: [
+                Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ProductCard(),
+                  ProductCard(),
+                ],
+              ),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ProductCard(),
+                  ProductCard(),
+                ],
+              ),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ProductCard(),
+                  ProductCard(),
+                ],
+              ),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ProductCard(),
+                  ProductCard(),
+                ],
+              ),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ProductCard(),
+                  ProductCard(),
+                ],
+              ),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ProductCard(),
+                  ProductCard(),
+                ],
+              ),
+              SizedBox(height: 20,),
+              ],
+            ),
           )
         ),
       ),
-      
-        
     );
   }
 }

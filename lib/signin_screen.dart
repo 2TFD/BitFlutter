@@ -1,9 +1,22 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class SigninScreen extends StatelessWidget {
-  const SigninScreen({super.key});
+class SigninScreen extends StatefulWidget {
+  SigninScreen({super.key});
+  bool isOpenEye = false;
+
+  @override
+  State<SigninScreen> createState() => _SigninScreenState();
+}
+
+class _SigninScreenState extends State<SigninScreen> {
+  void changeEye() {
+    setState(() {
+      widget.isOpenEye = !widget.isOpenEye;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +64,7 @@ class SigninScreen extends StatelessWidget {
                     color: Color.fromRGBO(247, 247, 249, 1),
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  padding: EdgeInsets.only(
-                    left: 10,
-                  ),
+                  padding: EdgeInsets.only(left: 10),
                   child: TextField(
                     obscureText: true,
                     decoration: InputDecoration(
@@ -64,26 +75,30 @@ class SigninScreen extends StatelessWidget {
                   ),
                 ),
 
-
                 SizedBox(height: 20),
                 Text(
                   'Пароль',
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                 ),
-                                Container(
+                Container(
                   decoration: BoxDecoration(
                     color: Color.fromRGBO(247, 247, 249, 1),
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  padding: EdgeInsets.only(
-                    left: 10,
-                  ),
+                  padding: EdgeInsets.only(left: 10),
                   child: TextField(
-                    obscureText: true,
+                    obscureText: widget.isOpenEye,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       labelText: '********',
-                      icon: Icon(Icons.remove_red_eye_sharp),
+                      suffixIcon: GestureDetector(
+                        onTap: () => changeEye(),
+                        child: Icon(
+                          widget.isOpenEye
+                          ? CupertinoIcons.eye_slash
+                          : CupertinoIcons.eye
+                        )
+                      ),
                       floatingLabelBehavior: FloatingLabelBehavior.never,
                     ),
                   ),
@@ -92,51 +107,45 @@ class SigninScreen extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Востановить', 
+                      'Востановить',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
                         color: Color.fromRGBO(112, 123, 129, 1),
                       ),
-                    )
-                  ],
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                ),
-                
-
-                SizedBox(height: 20,),
-
-                CupertinoButton.tinted(child: Text('Войти', style: TextStyle(
-                  color: Color.fromRGBO(247, 247, 249, 1)
-                )),
-                 onPressed: () => context.push('/popular'),
-                 disabledColor: Color.fromRGBO(72, 178, 231, 1),
-                 ),
-
-
-              ],
-              
-            ),
-            Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Вы впервые?',
-                          style: TextStyle(
-                            color: Colors.black12,
-                          )
-                        ),
-                        Text(
-                          'Создать пользователя',
-                        )
-                      ],
                     ),
                   ],
-                )
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                ),
+
+                SizedBox(height: 20),
+
+                CupertinoButton.tinted(
+                  child: Text(
+                    'Войти',
+                    style: TextStyle(color: Color.fromRGBO(247, 247, 249, 1)),
+                  ),
+                  onPressed: () => context.push('/popular'),
+                  disabledColor: Color.fromRGBO(72, 178, 231, 1),
+                ),
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Вы впервые?',
+                      style: TextStyle(color: Colors.black12),
+                    ),
+                    Text('Создать пользователя'),
+                  ],
+                ),
+              ],
+            ),
           ],
         ),
       ),
