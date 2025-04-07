@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 class SigninScreen extends StatefulWidget {
   SigninScreen({super.key});
-  bool isOpenEye = false;
+  bool isOpenEye = true;
 
   @override
   State<SigninScreen> createState() => _SigninScreenState();

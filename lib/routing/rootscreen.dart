@@ -14,8 +14,8 @@ class Rootscreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.gear), label: ''),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.heart), label: ''),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.bell), label: ''),
         ],
         onTap: (index) {
           navigationShell.goBranch(
