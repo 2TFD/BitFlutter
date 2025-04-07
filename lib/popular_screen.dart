@@ -7,6 +7,10 @@ class PopularScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var widgets = <Widget>[];
+    for (var i = 0; i <= 20; i++) {
+      widgets.add(ProductCard());
+    }
     return Scaffold(
       appBar: AppBar(
         title: Column(
@@ -15,7 +19,8 @@ class PopularScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Популярное'),
-                Row(children: [Icon(CupertinoIcons.heart)]),
+                Spacer(),
+                Icon(CupertinoIcons.heart),
               ],
             ),
           ],
@@ -25,81 +30,39 @@ class PopularScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Padding(
           padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-          // child: SingleChildScrollView(
-          //   child: Column(
-          //     children:
-                  // [0, 1, 2, 4, 5].map((_) {
-                  //   return Row(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //     children: [ProductCard(), ProductCard()],
-                  //   );
-                  // }).toList(),
-          //   ),
-          // ),
 
           child: SingleChildScrollView(
-            child: GridView.count(
-              crossAxisCount: 2,
-              children: [0, 1, 2, 4, 5].map((_) {
-                    return ProductCard();
-                  }).toList(),
-              ),
+            child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    children: widgets,
+                  ),
+                  Column(
+                    children: widgets,
+                  )
+                ]
+              )
+            ],
+            ),
           ),
 
-          // child: Scrollbar(
-          //   child: ListView(
-          //     children: [
-          //       Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //       children: [
-          //         ProductCard(),
-          //         ProductCard(),
-          //       ],
+
+
+          // child: SingleChildScrollView(child: Column(children: widgets)),
+
+          // child: SingleChildScrollView(
+          //   child: GridView.count(
+          //     crossAxisSpacing: 20,
+          //     mainAxisSpacing: 20,
+          //     crossAxisCount: 2,
+          //     children: [0, 1, 2, 4, 5].map((_) {
+          //           return ProductCard();
+          //         }).toList(),
           //     ),
-          //     SizedBox(height: 20,),
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //       children: [
-          //         ProductCard(),
-          //         ProductCard(),
-          //       ],
-          //     ),
-          //     SizedBox(height: 20,),
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //       children: [
-          //         ProductCard(),
-          //         ProductCard(),
-          //       ],
-          //     ),
-          //     SizedBox(height: 20,),
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //       children: [
-          //         ProductCard(),
-          //         ProductCard(),
-          //       ],
-          //     ),
-          //     SizedBox(height: 20,),
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //       children: [
-          //         ProductCard(),
-          //         ProductCard(),
-          //       ],
-          //     ),
-          //     SizedBox(height: 20,),
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //       children: [
-          //         ProductCard(),
-          //         ProductCard(),
-          //       ],
-          //     ),
-          //     SizedBox(height: 20,),
-          //     ],
-          //   ),
-          // )
+          // ),
         ),
       ),
     );

@@ -101,8 +101,8 @@ class ProductCard extends StatelessWidget {
                 },
                 icon: Icon(CupertinoIcons.add),
               ),
-            )
-          )
+            ),
+          ),
         ],
       ),
     );
