@@ -65,7 +65,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   ),
                   padding: EdgeInsets.only(left: 10),
                   child: TextField(
-                    obscureText: true,
+                    obscureText: false,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       labelText: 'xyz@gmail.com',
@@ -105,7 +105,8 @@ class _SigninScreenState extends State<SigninScreen> {
 
                 Row(
                   children: [
-                    Text(
+                    GestureDetector(
+                      child: Text(
                       'Востановить',
                       style: TextStyle(
                         fontSize: 12,
@@ -113,6 +114,8 @@ class _SigninScreenState extends State<SigninScreen> {
                         color: Color.fromRGBO(112, 123, 129, 1),
                       ),
                     ),
+                    onTap: () => context.go('/forgot'),
+                    )
                   ],
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -120,13 +123,13 @@ class _SigninScreenState extends State<SigninScreen> {
 
                 SizedBox(height: 20),
 
-                CupertinoButton.tinted(
+                CupertinoButton(
                   child: Text(
                     'Войти',
                     style: TextStyle(color: Color.fromRGBO(247, 247, 249, 1)),
                   ),
-                  onPressed: () => context.push('/popular'),
-                  disabledColor: Color.fromRGBO(72, 178, 231, 1),
+                  onPressed: () => context.go('/'),
+                  color: Color.fromRGBO(72, 178, 231, 1),
                 ),
               ],
             ),
@@ -140,7 +143,10 @@ class _SigninScreenState extends State<SigninScreen> {
                       'Вы впервые?',
                       style: TextStyle(color: Colors.black12),
                     ),
-                    Text('Создать пользователя'),
+                    GestureDetector(
+                      child: Text('Создать пользователя'),
+                      onTap: () => context.go('/reg')
+                    )
                   ],
                 ),
               ],
