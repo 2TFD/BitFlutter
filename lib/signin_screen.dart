@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:matule/product_card.dart';
 
 class SigninScreen extends StatefulWidget {
   SigninScreen({super.key});
@@ -20,6 +21,7 @@ class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.only(
           left: 20,
@@ -94,9 +96,9 @@ class _SigninScreenState extends State<SigninScreen> {
                         onTap: () => changeEye(),
                         child: Icon(
                           widget.isOpenEye
-                          ? CupertinoIcons.eye_slash
-                          : CupertinoIcons.eye
-                        )
+                              ? CupertinoIcons.eye_slash
+                              : CupertinoIcons.eye,
+                        ),
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.never,
                     ),
@@ -107,15 +109,15 @@ class _SigninScreenState extends State<SigninScreen> {
                   children: [
                     GestureDetector(
                       child: Text(
-                      'Востановить',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: Color.fromRGBO(112, 123, 129, 1),
+                        'Востановить',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: Color.fromRGBO(112, 123, 129, 1),
+                        ),
                       ),
+                      onTap: () => context.push('/forgot'),
                     ),
-                    onTap: () => context.go('/forgot'),
-                    )
                   ],
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -145,8 +147,8 @@ class _SigninScreenState extends State<SigninScreen> {
                     ),
                     GestureDetector(
                       child: Text('Создать пользователя'),
-                      onTap: () => context.go('/reg')
-                    )
+                      onTap: () => context.push('/reg'),
+                    ),
                   ],
                 ),
               ],

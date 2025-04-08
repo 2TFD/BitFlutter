@@ -28,6 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(actions: [],),
       body: Padding(
         padding: EdgeInsets.only(top: 121, left: 20, right: 20, bottom: 47),
         child: Column(

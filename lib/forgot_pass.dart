@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:matule/test_screen.dart';
 
 class ForgotPass extends StatelessWidget {
   const ForgotPass({super.key});
@@ -8,12 +9,13 @@ class ForgotPass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.only(top: 130, left: 20, right: 20),
         child: Container(
-          // height: 272,
           width: 335,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 'Забыл пароль',
@@ -44,10 +46,32 @@ class ForgotPass extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  AlertDialog(
-                    title: Text("Success"),
-                    content: Text("Save successfully"),
+                  showDialog(
+                    context: context,
+                    builder:
+                        (context) => AlertDialog(
+                          title: Text('data'),
+                          content: Text('data'),
+                        ),
                   );
+                  // showDialog<String>(
+                  //   context: context,
+                  //   builder:
+                  //       (BuildContext context) => AlertDialog(
+                  //         title: const Text('AlertDialog Title'),
+                  //         content: const Text('AlertDialog description'),
+                  //         actions: <Widget>[
+                  //           TextButton(
+                  //             onPressed: () => Navigator.pop(context, 'Cancel'),
+                  //             child: const Text('Cancel'),
+                  //           ),
+                  //           TextButton(
+                  //             onPressed: () => Navigator.pop(context, 'OK'),
+                  //             child: const Text('OK'),
+                  //           ),
+                  //         ],
+                  //       ),
+                  // );
                 },
                 color: Color.fromRGBO(72, 178, 231, 1),
               ),
