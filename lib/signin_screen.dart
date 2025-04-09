@@ -116,7 +116,7 @@ class _SigninScreenState extends State<SigninScreen> {
                           color: Color.fromRGBO(112, 123, 129, 1),
                         ),
                       ),
-                      onTap: () => context.push('/forgot'),
+                      onTap: () => context.push('/signin/reg/forgot'),
                     ),
                   ],
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -147,7 +147,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     ),
                     GestureDetector(
                       child: Text('Создать пользователя'),
-                      onTap: () => context.push('/reg'),
+                      onTap: () => context.push('/signin/reg'),
                     ),
                   ],
                 ),

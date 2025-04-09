@@ -50,28 +50,35 @@ class ForgotPass extends StatelessWidget {
                     context: context,
                     builder:
                         (context) => AlertDialog(
-                          title: Text('data'),
-                          content: Text('data'),
+                          title: Icon(CupertinoIcons.mail_solid),
+                          content: GestureDetector(
+                            onTap: () => context.push('/signin/reg/forgot/verif'),
+                            child: Container(
+                              height: 68,
+                              width: 335,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Проверьте Ваш Email',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Text(
+                                    'Мы отправили код восстановления пароля на вашу электронную почту.',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(112, 123, 129, 1),
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
                         ),
                   );
-                  // showDialog<String>(
-                  //   context: context,
-                  //   builder:
-                  //       (BuildContext context) => AlertDialog(
-                  //         title: const Text('AlertDialog Title'),
-                  //         content: const Text('AlertDialog description'),
-                  //         actions: <Widget>[
-                  //           TextButton(
-                  //             onPressed: () => Navigator.pop(context, 'Cancel'),
-                  //             child: const Text('Cancel'),
-                  //           ),
-                  //           TextButton(
-                  //             onPressed: () => Navigator.pop(context, 'OK'),
-                  //             child: const Text('OK'),
-                  //           ),
-                  //         ],
-                  //       ),
-                  // );
                 },
                 color: Color.fromRGBO(72, 178, 231, 1),
               ),

@@ -12,10 +12,12 @@ class Rootscreen extends StatelessWidget {
     return Scaffold(
       body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: ''),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.heart), label: ''),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.bell), label: ''),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.profile_circled), label: ''),
         ],
         onTap: (index) {
           navigationShell.goBranch(
