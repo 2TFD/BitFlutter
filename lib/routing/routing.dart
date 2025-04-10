@@ -34,7 +34,7 @@ final router = GoRouter(
       branches: [
         StatefulShellBranch(
           routes: [
-            GoRoute(path: '/', builder: (context, state) => PopularScreen()),
+            GoRoute(path: '/', builder: (context, state) => TestScreen()),
           ],
         ),
         StatefulShellBranch(

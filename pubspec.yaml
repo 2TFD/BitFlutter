@@ -96,3 +96,5 @@ flutter:
   # see https://flutter.dev/to/font-from-package
   assets:
     - lib/photo/nike-zoom.png
+    - lib/photo/profile_image.png
+    - lib/photo/code_profile.png

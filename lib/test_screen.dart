@@ -1,26 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:matule/product_card.dart';
+import 'package:matule/root_store.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
-class TestScreen extends StatefulWidget {
+class TestScreen extends StatelessWidget {
   TestScreen({super.key});
 
-  bool isFlag = true;
-
-  @override
-  State<TestScreen> createState() => _TestScreenState();
-}
-
-class _TestScreenState extends State<TestScreen> {
-   _onTap() {
-    widget.isFlag = !widget.isFlag;
-  }
+  final RootStore _rootStore = RootStore();
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => setState(() {
-        _onTap();
-      }),
-      child: Container(color: widget.isFlag ? Colors.amber : Colors.black,)
+    return Scaffold(
+      appBar: AppBar(
+        title: GestureDetector(
+          child: Text('+widget'),
+          onTap: () {
+            _rootStore.increment();
+            print('${_rootStore.testArray}');
+          },
+        ),
+      ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Observer(
+          builder: (_) => Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children:
+                _rootStore.testArray.map((toElement) {
+                  return ProductCard();
+                }).toList(),
+          ),
+        ),
+      ),
     );
-}
+  }
 }
