@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:matule/product_card.dart';
-import 'package:matule/root_store.dart';
+import 'package:matule/share/root_store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 class TestScreen extends StatelessWidget {
