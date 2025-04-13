@@ -7,6 +7,9 @@ class ProfileScreen extends StatefulWidget {
   ProfileScreen({super.key});
 
   bool changedName = true;
+  bool changedLastName = true;
+  bool changedAddress = true;
+  bool changedNumber = true;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -24,6 +27,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void changetNameFalse() {
     setState(() {
       widget.changedName = false;
+    });
+  }
+  void changetLastNameTrue() {
+    setState(() {
+      widget.changedLastName = true;
+    });
+  }
+
+  void changetLastNameFalse() {
+    setState(() {
+      widget.changedLastName = false;
+    });
+  }
+  void changetAddressTrue() {
+    setState(() {
+      widget.changedAddress = true;
+    });
+  }
+
+  void changetAddressFalse() {
+    setState(() {
+      widget.changedAddress = false;
+    });
+  }
+  void changetNumTrue() {
+    setState(() {
+      widget.changedNumber = true;
+    });
+  }
+
+  void changetNumFalse() {
+    setState(() {
+      widget.changedNumber = false;
     });
   }
 
@@ -94,6 +130,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                   ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Имя', style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),)),
+                    SizedBox(height: 17,),
                   Observer(
                     builder:
                         (_) => TextField(
@@ -101,8 +144,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           onSubmitted: (value) {
                             _rootstore.profileDetails.changeName(value);
                             changetNameTrue();
+                            
                           },
-                          onTap: () {
+                          onTap: () {             
                             changetNameFalse();
                           },
                           decoration: InputDecoration(
@@ -116,6 +160,100 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                   ),
+                  SizedBox(height: 16,),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Фамилия', style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),)),
+                    SizedBox(height: 17,),
+                  Observer(
+                    builder:
+                        (_) => TextField(
+                          textAlign: TextAlign.center,
+                          onSubmitted: (value) {
+                            _rootstore.profileDetails.changelastname(value);
+                            changetLastNameTrue();
+                            
+                          },
+                          onTap: () {             
+                            changetLastNameFalse();
+                          },
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            labelText: _rootstore.profileDetails.lastname,
+                            floatingLabelBehavior: FloatingLabelBehavior.never,
+                            suffixIcon:
+                                widget.changedLastName
+                                    ? Icon(CupertinoIcons.check_mark)
+                                    : Icon(CupertinoIcons.clear),
+                          ),
+                        ),
+                  ),
+                  SizedBox(height: 16,),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Адрес', style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),)),
+                    SizedBox(height: 17,),
+                  Observer(
+                    builder:
+                        (_) => TextField(
+                          textAlign: TextAlign.center,
+                          onSubmitted: (value) {
+                            _rootstore.profileDetails.changeaddress(value);
+                            changetAddressTrue();
+                            
+                          },
+                          onTap: () {             
+                            changetAddressFalse();
+                          },
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            labelText: _rootstore.profileDetails.address,
+                            floatingLabelBehavior: FloatingLabelBehavior.never,
+                            suffixIcon:
+                                widget.changedAddress
+                                    ? Icon(CupertinoIcons.check_mark)
+                                    : Icon(CupertinoIcons.clear),
+                          ),
+                        ),
+                  ),
+                  SizedBox(height: 16,),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Телефон', style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),)),
+                    SizedBox(height: 17,),
+                  Observer(
+                    builder:
+                        (_) => TextField(
+                          textAlign: TextAlign.center,
+                          onSubmitted: (value) {
+                            _rootstore.profileDetails.changenumber(value);
+                            changetNumTrue();
+                            
+                          },
+                          onTap: () {             
+                            changetNumFalse();
+                          },
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            labelText: _rootstore.profileDetails.number,
+                            floatingLabelBehavior: FloatingLabelBehavior.never,
+                            suffixIcon:
+                                widget.changedNumber
+                                    ? Icon(CupertinoIcons.check_mark)
+                                    : Icon(CupertinoIcons.clear),
+                          ),
+                        ),
+                  ),
+                  SizedBox(height: 16,)
                 ],
               ),
             ),

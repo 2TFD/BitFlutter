@@ -7,10 +7,27 @@ class ProfileStore = _ProfileStore with _$ProfileStore;
 abstract class _ProfileStore with Store{
 
   @observable
-  String name = 'username_ivan';
+  String name = 'name';
+  String lastname = 'lastname';
+  String address = 'address';
+  String number = 'phone num';
+  
 
   @action
-  void changeName(newname){
-    name = newname;
+  void changeName(newvalue){
+    name = newvalue;
   }
+  @action
+  void changelastname(newvalue){
+    lastname = newvalue;
+  }
+  @action
+  void changeaddress(newvalue){
+    address = newvalue;
+  }
+  @action
+  void changenumber(newvalue){
+    number = newvalue;
+  }
+
 }
