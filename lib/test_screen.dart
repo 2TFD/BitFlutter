@@ -1,35 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:matule/product_card.dart';
-import 'package:matule/share/root_store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:matule/share/root_store.dart';
 
 class TestScreen extends StatelessWidget {
   TestScreen({super.key});
 
-  final RootStore _rootStore = RootStore();
-
   @override
   Widget build(BuildContext context) {
+    RootStore _rootstore = RootStore();
     return Scaffold(
-      appBar: AppBar(
-        title: GestureDetector(
-          child: Text('+widget'),
-          onTap: () {
-            _rootStore.increment();
-            print('${_rootStore.testArray}');
-          },
-        ),
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Observer(
-          builder: (_) => Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children:
-                _rootStore.testArray.map((toElement) {
-                  return ProductCard();
-                }).toList(),
-          ),
+      body: Observer(
+        builder: (_)=> Column(
+          children: [
+            Text(_rootstore.profileDetails.name),
+            Text(_rootstore.profileDetails.lastname),
+            Text(_rootstore.profileDetails.address),
+            Text(_rootstore.profileDetails.number),
+          ],
         ),
       ),
     );

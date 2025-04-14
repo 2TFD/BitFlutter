@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:matule/product_card.dart';
+import 'package:matule/cards/product_card.dart';
 
 class PopularScreen extends StatelessWidget {
   PopularScreen({super.key});

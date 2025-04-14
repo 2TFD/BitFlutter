@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:matule/product_card.dart';
+import 'package:matule/cards/product_card.dart';
 
 class SigninScreen extends StatefulWidget {
   SigninScreen({super.key});
