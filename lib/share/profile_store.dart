@@ -1,4 +1,4 @@
-import 'package:matule/entyti/user_entyti.dart';
+import 'package:matule/entity/user_entity.dart';
 import 'package:mobx/mobx.dart';
 
 part 'profile_store.g.dart';
@@ -16,11 +16,11 @@ abstract class _ProfileStore with Store {
   String number = 'phone num';
 
   @observable
-  late UserEntyti _userEntyti;
+  late UserEntity _userEntity;
 
   @action
   void main() {
-    _userEntyti = UserEntyti(
+    _userEntity = UserEntity(
       name: name,
       lastname: lastname,
       address: address,
