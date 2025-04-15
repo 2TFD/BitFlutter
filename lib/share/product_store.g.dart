@@ -9,18 +9,23 @@ part of 'product_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$ProductStore on _ProductStore, Store {
-  late final _$nameAtom = Atom(name: '_ProductStore.name', context: context);
+  late final _$_productEntityAtom =
+      Atom(name: '_ProductStore._productEntity', context: context);
 
   @override
-  String get name {
-    _$nameAtom.reportRead();
-    return super.name;
+  ProductEntity get _productEntity {
+    _$_productEntityAtom.reportRead();
+    return super._productEntity;
   }
 
+  bool __productEntityIsInitialized = false;
+
   @override
-  set name(String value) {
-    _$nameAtom.reportWrite(value, super.name, () {
-      super.name = value;
+  set _productEntity(ProductEntity value) {
+    _$_productEntityAtom.reportWrite(
+        value, __productEntityIsInitialized ? super._productEntity : null, () {
+      super._productEntity = value;
+      __productEntityIsInitialized = true;
     });
   }
 
@@ -28,11 +33,11 @@ mixin _$ProductStore on _ProductStore, Store {
       ActionController(name: '_ProductStore', context: context);
 
   @override
-  void changeName(dynamic newname) {
-    final _$actionInfo = _$_ProductStoreActionController.startAction(
-        name: '_ProductStore.changeName');
+  void main() {
+    final _$actionInfo =
+        _$_ProductStoreActionController.startAction(name: '_ProductStore.main');
     try {
-      return super.changeName(newname);
+      return super.main();
     } finally {
       _$_ProductStoreActionController.endAction(_$actionInfo);
     }
@@ -41,7 +46,7 @@ mixin _$ProductStore on _ProductStore, Store {
   @override
   String toString() {
     return '''
-name: ${name}
+
     ''';
   }
 }

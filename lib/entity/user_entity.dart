@@ -12,7 +12,7 @@ class UserEntity extends Equatable {
     required this.lastname,
     required this.address,
     required this.number,
-    required this.item,
+    this.item,
     this.items,
     this.basket,
   });
@@ -21,7 +21,7 @@ class UserEntity extends Equatable {
   String lastname;
   String address;
   String number;
-  ItemEntity item;
+  ItemEntity? item;
   List<ItemEntity>? items = [];
   List<ProductEntity>? basket = [];
 
@@ -39,9 +39,10 @@ class UserEntity extends Equatable {
           (json['items'] as List<dynamic>).map((e) {
             return ItemEntity.fromJson(jsonDecode(e));
           }).toList(),
-      basket: (json['basket'] as List<dynamic>).map((e) {
-        return ProductEntity.fromJson(jsonDecode(e));
-      }).toList(),
+      basket:
+          (json['basket'] as List<dynamic>).map((e) {
+            return ProductEntity.fromJson(jsonDecode(e));
+          }).toList(),
     );
   }
 
@@ -50,32 +51,38 @@ class UserEntity extends Equatable {
     'lastname': this.lastname,
     'addres': this.address,
     'number': this.number,
-    'item': this.item.toJson(),
+    // 'item': this.item.toJson(),
     'items':
         this.items!.map((toElement) {
           return jsonEncode(toElement.toJson());
         }).toList(),
+    'basket': this.basket!.map((toElement) {
+      return jsonEncode(toElement.toJson());
+    }),
   };
+
+  
 }
 
 void main() {
-  final user = UserEntity(
-    name: 'name',
-    lastname: 'lastname',
-    address: 'address',
-    number: 'number',
-    item: item,
-    items: [item, item, item],
-  );
+  // final user = UserEntity(
+  //   name: 'name',
+  //   lastname: 'lastname',
+  //   address: 'address',
+  //   number: 'number',
+  //   item: item,
+  //   items: [item, item, item],
+  //   basket: [product1, product2, product3],
+  // );
 
-  print(user.toJson());
-  final jsonUser = jsonEncode(user.toJson());
-  print(jsonUser);
-  final encode = jsonDecode(jsonUser);
-  print(encode);
-  print(UserEntity.fromJson(encode));
-  print(UserEntity.fromJson(encode).item);
-  print(UserEntity.fromJson(encode).items);
+  // print(user.toJson());
+  // final jsonUser = jsonEncode(user.toJson());
+  // print(jsonUser);
+  // final encode = jsonDecode(jsonUser);
+  // print(encode);
+  // print(UserEntity.fromJson(encode));
+  // print(UserEntity.fromJson(encode).item);
+  // print(UserEntity.fromJson(encode).basket);
 
   // print(jsonDecode(jsonUser));
 }

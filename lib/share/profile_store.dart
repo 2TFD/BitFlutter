@@ -30,6 +30,8 @@ abstract class _ProfileStore with Store {
       address: address,
       number: number,
       item: item,
+      items: [],
+      basket: [],
     );
   }
 

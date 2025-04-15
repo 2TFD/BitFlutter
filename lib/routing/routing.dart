@@ -12,7 +12,7 @@ import 'package:matule/verif_screen.dart';
 
 class Routing {
   final router = GoRouter(
-    initialLocation: '/notification',
+    initialLocation: '/',
     routes: [
       StatefulShellRoute.indexedStack(
         builder:
