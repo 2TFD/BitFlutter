@@ -1,3 +1,4 @@
+import 'package:matule/entity/item_entity.dart';
 import 'package:matule/entity/user_entity.dart';
 import 'package:mobx/mobx.dart';
 
@@ -18,6 +19,9 @@ abstract class _ProfileStore with Store {
   @observable
   late UserEntity _userEntity;
 
+  @observable
+  late ItemEntity _itemEntity;
+
   @action
   void main() {
     _userEntity = UserEntity(
@@ -25,6 +29,7 @@ abstract class _ProfileStore with Store {
       lastname: lastname,
       address: address,
       number: number,
+      item: item,
     );
   }
 

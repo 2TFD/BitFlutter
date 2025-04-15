@@ -7,6 +7,7 @@ class RootStore with Store {
   final profileDetails = ProfileStore();
 
 
+
   static final RootStore _singleton = RootStore._internal();
 
   factory RootStore() {
