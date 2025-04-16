@@ -4,15 +4,7 @@ import 'package:matule/entity/product_entity.dart';
 import 'package:matule/entity/user_entity.dart';
 import 'package:matule/share/root_store.dart';
 
-class TestScreen extends StatefulWidget {
-  TestScreen({super.key});
-
-  @override
-  State<TestScreen> createState() => _TestScreenState();
-}
-
-class _TestScreenState extends State<TestScreen> {
-  final RootStore _rootStore = RootStore();
+final RootStore _rootStore = RootStore();
 
   final user = UserEntity(
     name: 'name',
@@ -27,6 +19,17 @@ class _TestScreenState extends State<TestScreen> {
       _rootStore.productDetails.product33,
     ],
   );
+
+
+class TestScreen extends StatefulWidget {
+  TestScreen({super.key});
+
+  @override
+  State<TestScreen> createState() => _TestScreenState();
+}
+
+class _TestScreenState extends State<TestScreen> {
+  
 
 
   List<ItemEntity> itemsArray = user.items!;
