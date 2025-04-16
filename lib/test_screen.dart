@@ -4,37 +4,49 @@ import 'package:matule/entity/product_entity.dart';
 import 'package:matule/entity/user_entity.dart';
 import 'package:matule/share/root_store.dart';
 
-final RootStore _rootStore = RootStore();
-
-final user = UserEntity(
-  name: 'name',
-  lastname: 'lastname',
-  address: 'address',
-  number: 'number',
-  item: item,
-  items: [item, item, item],
-  basket: [
-    _rootStore.productDetails.product11,
-    _rootStore.productDetails.product22,
-    _rootStore.productDetails.product33,
-  ],
-);
-
-class TestScreen extends StatelessWidget {
+class TestScreen extends StatefulWidget {
   TestScreen({super.key});
 
-  List<ItemEntity> itemsArray = [];
+  @override
+  State<TestScreen> createState() => _TestScreenState();
+}
+
+class _TestScreenState extends State<TestScreen> {
+  final RootStore _rootStore = RootStore();
+
+  final user = UserEntity(
+    name: 'name',
+    lastname: 'lastname',
+    address: 'address',
+    number: 'number',
+    item: item,
+    items: [item, item, item],
+    basket: [
+      _rootStore.productDetails.product11,
+      _rootStore.productDetails.product22,
+      _rootStore.productDetails.product33,
+    ],
+  );
+
+
+  List<ItemEntity> itemsArray = user.items!;
+
   List<ProductEntity> basketArray = [];
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    // TODO: implement initState
     for (int i = 0; i < user.items!.length; i++) {
       itemsArray.add(user.items![i]);
     }
     for (int i = 0; i < user.basket!.length; i++) {
       basketArray.add(user.basket![i]);
     }
-    RootStore _rootstore = RootStore();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
