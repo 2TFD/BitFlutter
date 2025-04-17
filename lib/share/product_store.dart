@@ -7,21 +7,21 @@ class ProductStore = _ProductStore with _$ProductStore;
 
 abstract class _ProductStore with Store {
   @observable
-  final product11 = ProductEntity(
+  ProductEntity product11 = ProductEntity(
     title: 'nike',
     price: 700,
     imageUrl: 'http://1img',
     description: 'description',
   );
   @observable
-  final product22 = ProductEntity(
+  ProductEntity product22 = ProductEntity(
     title: 'nike2',
     price: 701,
     imageUrl: 'http://2img',
     description: 'description',
   );
   @observable
-  final product33 = ProductEntity(
+  ProductEntity product33 = ProductEntity(
     title: 'nike3',
     price: 703,
     imageUrl: 'http://3img',

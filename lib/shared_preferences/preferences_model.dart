@@ -14,3 +14,4 @@ class PreferencesModel {
     storage.setString('key', RootStore().profileDetails.name);
   }
 }
+

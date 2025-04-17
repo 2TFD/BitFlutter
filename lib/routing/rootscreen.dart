@@ -10,14 +10,22 @@ class Rootscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: navigationShell,
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: SafeArea(child: navigationShell),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: ''),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.heart), label: ''),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.bell), label: ''),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.profile_circled), label: ''),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.profile_circled),
+            label: '',
+          ),
         ],
         onTap: (index) {
           navigationShell.goBranch(

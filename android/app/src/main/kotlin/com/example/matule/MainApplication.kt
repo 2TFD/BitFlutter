@@ -1,5 +1,5 @@
+package com.example.matule
 import android.app.Application
-
 import com.yandex.mapkit.MapKitFactory
 
 class MainApplication: Application() {
